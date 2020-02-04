@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class DataTable extends React.Component {
+class DataTable extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -21,18 +21,18 @@ class DataTable extends React.Component {
         })
         e.stopPropagation();
     }
-    handleClick=()=>{
-        alert('Row Clicked');
+    handleClick(item,index){
+        alert(`Row ${index} Clicked`);
     }
     render() {
         const { item,index } = this.props;
         const { selectData } = this.state
         return (
-            <tr onClick={this.handleClick} style={{background : selectData ? '#eee' : '#fff' }}>
+            <tr onClick={()=>this.handleClick(item,index)} style={{background : selectData ? '#eee' : '#fff' }}>
                 <td>{index}</td>
                 <td><input type='checkbox' value={selectData} checked={selectData} 
                 onClick={(e)=>this.selectData(e)} /></td>
-                <td><img src={item.thumbnailUrl} width='50' /></td>
+                <td><img src={item.thumbnailUrl} alt={item.title} width='50' /></td>
                 <td>{item.title}</td>
             </tr>
         );

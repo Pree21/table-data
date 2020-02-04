@@ -54,7 +54,7 @@ class Home extends Component {
   }
 
   render() {
-    const { data, term, SelectAllData,loading } = this.state;
+    const { data, SelectAllData,loading } = this.state;
     return (
       <div className="app">
         <header>
@@ -71,7 +71,7 @@ class Home extends Component {
               <thead>
                 <tr>
                   <td>S.No</td>
-                  <td><input type='checkbox' checked={SelectAllData} onClick={this.SelectAll} /> All </td>
+                  <td><input type='checkbox' checked={SelectAllData} onChange={this.SelectAll} /> All </td>
                   <td>Image</td>
                   <td>Title</td>
                 </tr>
