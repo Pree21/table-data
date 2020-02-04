@@ -25,11 +25,11 @@ class DataTable extends React.Component {
         alert('Row Clicked');
     }
     render() {
-        const { item, } = this.props;
+        const { item,index } = this.props;
         const { selectData } = this.state
         return (
             <tr onClick={this.handleClick} style={{background : selectData ? '#eee' : '#fff' }}>
-                <td>{item.id}</td>
+                <td>{index}</td>
                 <td><input type='checkbox' value={selectData} checked={selectData} 
                 onClick={(e)=>this.selectData(e)} /></td>
                 <td><img src={item.thumbnailUrl} width='50' /></td>
